@@ -16,6 +16,15 @@ public class Class_16_Main {
         System.out.println(stack.peek());
 
 
+        stack.push(30);
+        stack.push(40);
+
+
+        System.out.println("Сейчас как пересчитаем...");
+        for(Integer item : stack) {
+            System.out.println(item);
+        }
+
 
     }
 }

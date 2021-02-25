@@ -1,9 +1,33 @@
 package ClassWork_16_02;
 
-public class Stack<T> {
+import java.util.Iterator;
+
+public class Stack<T> implements Iterable<T> {
     public Stack(Node<T> head) {
         this.head = head;
     }
+
+    class StackIterator implements Iterator<T> {
+        Node<T> copyOfHead = head;
+        @Override
+        public boolean hasNext() {
+            if (copyOfHead.next != null) {
+                copyOfHead = copyOfHead.next;
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public T next() {
+            return copyOfHead.value;
+        }
+    }
+
+    public StackIterator iterator() {
+        return new StackIterator();
+    }
+
 
     static class Node<T> {
         private T value;
