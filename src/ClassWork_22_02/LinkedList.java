@@ -24,7 +24,6 @@ public class LinkedList<T> implements Iterable<T> {
         @Override
         public boolean hasNext() {
             if (copyOfRoot.next != null) {
-                copyOfRoot = copyOfRoot.next;
                 return true;
             }
             return false;
@@ -32,6 +31,7 @@ public class LinkedList<T> implements Iterable<T> {
 
         @Override
         public T next() {
+            copyOfRoot = copyOfRoot.next;
             return copyOfRoot.item;
         }
     }
@@ -67,6 +67,10 @@ public class LinkedList<T> implements Iterable<T> {
             return counter;
         }
 
+        if (this.root.item != null) {
+            return 1;
+        }
+        System.out.println("Список пуст.");
         return 0;
     }
 
@@ -100,7 +104,8 @@ public class LinkedList<T> implements Iterable<T> {
         if (size() > id) {
             if (size() - 1 == id) {
                 int counter = 0;
-                Node<T> temp = this.root.next;
+
+                Node<T> temp = this.root;
 
                 while (counter != id) {
                     counter++;
@@ -125,3 +130,7 @@ public class LinkedList<T> implements Iterable<T> {
         System.out.println("Id указанный вами, выходит за пределы списка!");
     }
 }
+
+    
+
+

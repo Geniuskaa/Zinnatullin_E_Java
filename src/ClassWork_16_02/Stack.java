@@ -3,8 +3,8 @@ package ClassWork_16_02;
 import java.util.Iterator;
 
 public class Stack<T> implements Iterable<T> {
-    public Stack(Node<T> head) {
-        this.head = head;
+    public Stack() {
+        this.head = new Node<>(null, null);
     }
 
     class StackIterator implements Iterator<T> {
@@ -12,7 +12,6 @@ public class Stack<T> implements Iterable<T> {
         @Override
         public boolean hasNext() {
             if (copyOfHead.next != null) {
-                copyOfHead = copyOfHead.next;
                 return true;
             }
             return false;
@@ -20,6 +19,7 @@ public class Stack<T> implements Iterable<T> {
 
         @Override
         public T next() {
+            copyOfHead = copyOfHead.next;
             return copyOfHead.value;
         }
     }
@@ -45,17 +45,24 @@ public class Stack<T> implements Iterable<T> {
         if(this.head != null) {
             Node<T> newNode = new Node<>(value, this.head);
             this.head = newNode;
+            return;
         }
+        this.head.value = value;
     }
 
     public T pop(){
-        if (head != null) {
+        if (this.head.value != null && this.head.next != null) {
             Node<T> oldHead = head;
             Node<T> previousHead = head.next;
             head = previousHead;
             return oldHead.value;
         }
-        return head.value;
+
+        if(this.head.value == null && this.head.next == null) {
+            System.out.println("Осторожно! Стек пуст - выводить нечего!");
+            return null;
+        }
+        return null;
     }
 
     public T peek(){
