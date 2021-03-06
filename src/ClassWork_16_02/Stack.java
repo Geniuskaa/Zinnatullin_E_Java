@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class Stack<T> implements Iterable<T> {
     public Stack() {
         this.head = new Node<>(null, null);
-    }
+    } // fixes
 
     class StackIterator implements Iterator<T> {
         Node<T> copyOfHead = head;
@@ -19,7 +19,7 @@ public class Stack<T> implements Iterable<T> {
 
         @Override
         public T next() {
-            copyOfHead = copyOfHead.next;
+            copyOfHead = copyOfHead.next; // fixes
             return copyOfHead.value;
         }
     }
@@ -47,7 +47,7 @@ public class Stack<T> implements Iterable<T> {
             this.head = newNode;
             return;
         }
-        this.head.value = value;
+        this.head.value = value; // fixes
     }
 
     public T pop(){
@@ -59,7 +59,7 @@ public class Stack<T> implements Iterable<T> {
         }
 
         if(this.head.value == null && this.head.next == null) {
-            System.out.println("Осторожно! Стек пуст - выводить нечего!");
+            System.out.println("Осторожно! Стек пуст - выводить нечего!"); // fixes
             return null;
         }
         return null;

@@ -1,7 +1,5 @@
 package ClassWork_22_02;
 
-import ClassWork_16_02.Stack;
-
 import java.util.Iterator;
 
 public class LinkedList<T> implements Iterable<T> {
@@ -31,7 +29,7 @@ public class LinkedList<T> implements Iterable<T> {
 
         @Override
         public T next() {
-            copyOfRoot = copyOfRoot.next;
+            copyOfRoot = copyOfRoot.next; // fixes
             return copyOfRoot.item;
         }
     }
@@ -105,7 +103,7 @@ public class LinkedList<T> implements Iterable<T> {
             if (size() - 1 == id) {
                 int counter = 0;
 
-                Node<T> temp = this.root;
+                Node<T> temp = this.root; // fixes
 
                 while (counter != id) {
                     counter++;
