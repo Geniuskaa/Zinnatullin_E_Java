@@ -1,0 +1,1 @@
+{"store":[{"nameOfProduct":"Iphone","countOfProducts":5},{"nameOfProduct":"Samsung","countOfProducts":2},{"nameOfProduct":"Huawei","countOfProducts":3},{"nameOfProduct":"Nokia","countOfProducts":12},{"nameOfProduct":"HTC","countOfProducts":74}]}
