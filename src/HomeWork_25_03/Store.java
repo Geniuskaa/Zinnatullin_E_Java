@@ -7,7 +7,9 @@ import java.util.Scanner;
 public class Store {
     private ArrayList<Product> store;
 
-    public Store() {}
+    public Store() {
+        store = new ArrayList<>();
+    }
 
     public Store(ArrayList<Product> store) {
         this.store = store;
@@ -25,7 +27,8 @@ public class Store {
     void addNewProduct(Product product){
         for (Product p : store) {
             if(p.nameOfProduct.equals(product.nameOfProduct)){
-                System.out.println("Извините, но такой объект есть на складе.");
+                System.out.println("Такой товар уже есть на складе, поэтому мы увеличили его кол-во.");
+                p.countOfProducts += product.countOfProducts;
                 return;
             }
         }
@@ -34,8 +37,9 @@ public class Store {
     }
 
     void removeProduct(String name) {
+        String answer = name.toLowerCase();
         for(int i = 0; i < store.size(); i++) {
-            if(store.get(i).nameOfProduct.equals(name)) {
+            if(store.get(i).nameOfProduct.equals(answer)) {
                 if (store.get(i).countOfProducts != 0) {
                     System.out.println("Данный товар ещё есть на складе. Всеравно удалить его из списка?");
                     System.out.print("Введите 'да' или 'нет': ");
@@ -58,8 +62,9 @@ public class Store {
     }
 
     void changeCountOfProducts(String name, int count) { // Метод не заменит значение, а увеличит
+        String answer = name.toLowerCase();
         for(int i = 0; i < store.size(); i++) {
-            if (store.get(i).nameOfProduct.equals(name)) {
+            if (store.get(i).nameOfProduct.equals(answer)) {
                 store.get(i).countOfProducts += count;
                 return;
             }

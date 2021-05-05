@@ -18,38 +18,37 @@ public class Home_25_Main {
         Product six = new Product("Honor", 24);
         Product seven = new Product("HTC", 4);
 
+        Store str = new Store();
+        str.addNewProduct(first);
+        str.addNewProduct(second);
+        str.addNewProduct(third);
+        str.addNewProduct(five);
+        str.addNewProduct(six);
+        str.addNewProduct(seven);
 
-          ArrayList<Product> products = new ArrayList<Product>();
-          products.add(first);
-          products.add(second);
-          products.add(third);
-          products.add(five);
-          products.add(six);
-          products.add(seven);
-
-          Store miniStore = new Store(products);
-          miniStore.removeProduct("HTC");
-
-          miniStore.changeCountOfProducts("Iphone", 10);
-          miniStore.printAllProducts();
-
-         //writeToFile(miniStore,"file.txt");
+//        str.removeProduct("htc");
+//        str.changeCountOfProducts("iphone", -3);
+        str.printAllProducts();
 
 
 
-        miniStore = readFromFile("file.txt");
-        miniStore.sizeOfStore();
-        miniStore.printAllProducts();
+
+
+
+         //writeToFile(str,"file.txt");
+
+        str = readFromFile("file.txt");
+
+
 
 
     }
 
-    static void writeToFile(Object o, String nameOffile) {
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
+    static void writeToFile(Store st, String nameOffile) { //Object o
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         try (FileWriter writer = new FileWriter(nameOffile, false)) {
-            writer.write(gson.toJson(o));
+            writer.write(gson.toJson(st));
             writer.flush();
         }
         catch (IOException e) {
@@ -57,9 +56,8 @@ public class Home_25_Main {
         }
     }
 
-    static Store readFromFile(String nameOfFile) throws FileNotFoundException {
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
+    static Store readFromFile(String nameOfFile) throws FileNotFoundException { // в существующий склад закинет данные
+        Gson gson = new GsonBuilder().create();                                 // вместо тех,что уже есть там
         Store store = gson.fromJson(new JsonReader(new FileReader(nameOfFile)), Store.class);
         return store;
     }

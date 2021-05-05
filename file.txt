@@ -1,1 +1,28 @@
-{"store":[{"nameOfProduct":"Iphone","countOfProducts":5},{"nameOfProduct":"Samsung","countOfProducts":2},{"nameOfProduct":"Huawei","countOfProducts":3},{"nameOfProduct":"Nokia","countOfProducts":12},{"nameOfProduct":"HTC","countOfProducts":74}]}
+{
+  "store": [
+    {
+      "nameOfProduct": "iphone",
+      "countOfProducts": 5
+    },
+    {
+      "nameOfProduct": "samsung",
+      "countOfProducts": 2
+    },
+    {
+      "nameOfProduct": "huawei",
+      "countOfProducts": 3
+    },
+    {
+      "nameOfProduct": "nokia",
+      "countOfProducts": 12
+    },
+    {
+      "nameOfProduct": "honor",
+      "countOfProducts": 24
+    },
+    {
+      "nameOfProduct": "htc",
+      "countOfProducts": 4
+    }
+  ]
+}

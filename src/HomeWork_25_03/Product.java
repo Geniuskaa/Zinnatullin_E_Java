@@ -5,7 +5,7 @@ public class Product {
     protected Integer countOfProducts;
 
     public Product(String nameOfProduct, Integer countOfProducts) {
-        this.nameOfProduct = nameOfProduct;
+        this.nameOfProduct = nameOfProduct.toLowerCase();
         this.countOfProducts = countOfProducts;
     }
 }
