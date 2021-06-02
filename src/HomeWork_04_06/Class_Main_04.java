@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.*;
@@ -35,14 +36,15 @@ public class Class_Main_04 {
         });
         thread2.setName("Reader");
 
-        thread1.start();
-        thread2.start();
-
-        thread1.join();
-        thread2.join();
+//        thread1.start();
+//        thread2.start();
+//
+//        thread1.join();
+//        thread2.join();
 
 
         /////////////////////////////////////////////////////////////////////////
+        System.out.println("\nЗаадание 2!");
 
         System.out.print("Введите число: ");
         Scanner sc = new Scanner(System.in);
@@ -55,13 +57,13 @@ public class Class_Main_04 {
 
         ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(4);
 
-        for(int i=0; i < t; i++){
-            try {
-                scheduledExecutorService.schedule(sA,3,TimeUnit.SECONDS).get();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-        }
+//        for(int i=0; i < t; i++){
+//            try {
+//                scheduledExecutorService.schedule(sA,3,TimeUnit.SECONDS).get();
+//            } catch (ExecutionException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
 
         scheduledExecutorService.shutdown();
@@ -69,9 +71,130 @@ public class Class_Main_04 {
             scheduledExecutorService.shutdownNow();
         }
 
+/////////////////////////////////////////////////////////
+        System.out.println("\nЗаадание 3!");
+        ExecutorService exServ = Executors.newFixedThreadPool(4);
+
+        int n;
+        while (true){
+            System.out.print("Введите положительное число: ");
+            n = sc.nextInt();
+            if(n > 0){
+                break;
+            }else {
+                System.out.println("Введено некорректное значение!");
+            }
+        }
+
+        SimpleNums sN = new SimpleNums(n);
+        try {
+            while (n > 0){
+                n = exServ.submit(sN).get();
+                Thread.sleep(1500);
+            }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
+        exServ.shutdown();
+        if (exServ.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS)) {
+            exServ.shutdownNow();
+        }
 
+    }
+
+
+}
+
+class SimpleNums implements Callable<Integer> {
+    int n;
+    int interval;
+    int lastInterval = 0;
+    ArrayList<Integer> nums;
+
+    public SimpleNums(int n) {
+        this.n = n;
+        this.nums = new ArrayList<>();
+        if (n > 3) {
+            if (n % 4 == 0) {
+                interval = n / 4;
+            } else {
+                interval = n / 4;
+                lastInterval = n % 4 + interval;
+            }
+        } else {
+            interval = n;
+        }
+
+    }
+
+    @Override
+    public Integer call() throws Exception {
+        if (lastInterval == 0) {
+            System.out.println(Thread.currentThread().getName() + " is working");
+            int temp = n;
+            for (int i = n; i > n - interval; i--) {
+                if (temp < 1) {
+                    break;
+                }
+
+                if (temp==1 || temp==2 || temp==3 || temp==5) {
+                    nums.add(temp);
+                    temp--;
+                    continue;
+                }
+
+                if (temp % 2 != 0 && temp % 3 != 0 && temp % 5 != 0) {
+                    nums.add(temp);
+                    temp--;
+                    continue;
+                } else {
+                    temp--;
+                    continue;
+                }
+            }
+            n = temp;
+            nums.sort((x,y) -> Integer.compare(x,y));
+            for (Integer i : nums) {
+                System.out.println(i);
+            }
+            return n;
+        } else {
+            System.out.println(Thread.currentThread().getName() + " is working");
+
+            int temp = n;
+            int minV = n - interval;
+            if (temp == lastInterval) {
+                minV = 0;
+            }
+            for (int i = n; i > minV; i--) {
+                if (temp < 1) {
+                    break;
+                }
+
+                if (temp==1 || temp==2 || temp==3 || temp==5) {
+                    nums.add(temp);
+                    temp--;
+                    continue;
+                }
+
+                if (temp % 2 != 0 && temp % 3 != 0 && temp % 5 != 0) {
+                    nums.add(temp);
+                    temp--;
+                    continue;
+                } else {
+                    temp--;
+                    continue;
+                }
+            }
+            n = temp;
+            nums.sort((x,y) -> Integer.compare(x,y));
+            for (Integer i : nums) {
+                System.out.println(i);
+            }
+            return n;
+        }
     }
 }
 
@@ -102,7 +225,7 @@ final class IOPersonClasses{
             try (FileWriter writer = new FileWriter("binocla.txt", true)) {
                 writer.write(gson.toJson(this.Generator()));
                 writer.flush();
-                System.out.println(Thread.currentThread().getName() + " записал данные в файл");
+                System.out.println("\n" + Thread.currentThread().getName() + " записал данные в файл");
                 iterations--;
                 notify();
 

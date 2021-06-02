@@ -65,7 +65,6 @@ public class Home_27_Main {
             System.out.print(s + " ");
         }
 
-        
     }
 
 
