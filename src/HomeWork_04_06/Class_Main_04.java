@@ -36,11 +36,11 @@ public class Class_Main_04 {
         });
         thread2.setName("Reader");
 
-//        thread1.start();
-//        thread2.start();
-//
-//        thread1.join();
-//        thread2.join();
+        thread1.start();
+        thread2.start();
+
+        thread1.join();
+        thread2.join();
 
 
         /////////////////////////////////////////////////////////////////////////
@@ -57,13 +57,13 @@ public class Class_Main_04 {
 
         ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(4);
 
-//        for(int i=0; i < t; i++){
-//            try {
-//                scheduledExecutorService.schedule(sA,3,TimeUnit.SECONDS).get();
-//            } catch (ExecutionException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        for(int i=0; i < t; i++){
+            try {
+                scheduledExecutorService.schedule(sA,3,TimeUnit.SECONDS).get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
 
 
         scheduledExecutorService.shutdown();

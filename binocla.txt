@@ -1,0 +1,41 @@
+{
+  "name": "ORIG",
+  "age": 64,
+  "countries": "ORIGIN"
+}{
+  "name": "C#",
+  "age": 59,
+  "countries": "C_SHARP"
+}{
+  "name": "GERM",
+  "age": 76,
+  "countries": "GERMANY"
+}{
+  "name": "O",
+  "age": 25,
+  "countries": "ORIGIN"
+}{
+  "name": "C",
+  "age": 100,
+  "countries": "C_SHARP"
+}{
+  "name": "AP",
+  "age": 12,
+  "countries": "APPLE"
+}{
+  "name": "S",
+  "age": 63,
+  "countries": "SPAIN"
+}{
+  "name": "SWEDE",
+  "age": 14,
+  "countries": "SWEDEN"
+}{
+  "name": "I",
+  "age": 26,
+  "countries": "ITALY"
+}{
+  "name": "IT",
+  "age": 31,
+  "countries": "ITIS"
+}
