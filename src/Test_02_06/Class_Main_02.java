@@ -1,14 +1,8 @@
 package Test_02_06;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Class_Main_02 {
     public static void main(String[] args) throws InterruptedException {
@@ -29,7 +23,7 @@ public class Class_Main_02 {
                     thread2.start();
                     break;
                 case 3:
-                    Thread thread3 = new Thread(() -> System.out.println("3 task"));
+                    Thread thread3 = new Thread(() -> thirdTask());
                     thread3.start();
                     break;
             }
@@ -128,12 +122,24 @@ public class Class_Main_02 {
             e.printStackTrace();
         }
 
-        //TODO in progress
-//        Purchase[] pur = s.toArray(Purchase[]::new);
-//        Arrays.stream(pur).collect(Collectors.groupingBy((x) -> x.product)).entrySet().stream().peek(x )
-//                .flatMap(x -> Stream.of(
-//                        x.
-//                ))
+        Purchase[] pur = s.toArray(Purchase[]::new);
+
+        Map<String, Integer[]> razbros = new HashMap<>();
+        Arrays.stream(pur).collect(Collectors.groupingBy((x) -> x.product)).entrySet()
+                .stream().forEach(x -> razbros.put(x.getKey(),
+                new Integer[] {x.getValue().stream().max((r,t) -> Integer.compare(r.count, t.count)).get().count}));
+
+        Arrays.stream(pur).collect(Collectors.groupingBy((x) -> x.product)).entrySet()
+                .stream().forEach(x ->
+                razbros.replace(x.getKey(),razbros.get(x.getKey()),
+                new Integer[] {x.getValue().stream().min((r,t) -> Integer.compare(r.count, t.count)).get().count, razbros.get(x.getKey())[0]}));
+
+        for (Map.Entry<String, Integer[]> k : razbros.entrySet()) {
+            System.out.println(k.getKey() + ":");
+            System.out.println("minimum: " + k.getValue()[0]);
+            System.out.println("maximum: " + k.getValue()[1]);
+        }
+
     }
 
     static class Purchase{
