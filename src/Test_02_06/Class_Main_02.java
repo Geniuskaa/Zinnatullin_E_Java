@@ -14,6 +14,7 @@ public class Class_Main_02 {
     public static void main(String[] args) throws InterruptedException {
         Thread thread1 = new Thread(() -> firstTask());
 
+
         Thread thread2 = new Thread(() -> secondTask());
 
         Thread thread3 = new Thread(() -> System.out.println("3 task"));
@@ -101,9 +102,14 @@ public class Class_Main_02 {
         sum /= count.size();
         int d = (int) sum;
 
+        for (Map.Entry<String, Long> k : count.entrySet()) {
+            if(k.getValue() > d){
+                System.out.println(k.getKey() + " " + k.getValue());
+            }
+        }
 
-        Arrays.stream(sklad).collect(Collectors.groupingBy(x -> x.name)).entrySet().stream()
-                .filter(x -> x.getValue().size() > d).forEach(z -> System.out.println(z.getValue()));
+//        Arrays.stream(sklad).collect(Collectors.groupingBy(x -> x.name)).entrySet().stream()
+//                .filter(x -> x.getValue().size() > d).forEach(z -> System.out.println(z.getValue()));
     }
 
     static class Purchase{
