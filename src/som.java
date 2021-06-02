@@ -19,6 +19,7 @@ public class som {
 //            System.out.println(s.substring(matcher.start(), matcher.end()));
 //        }
 
+
         String so = "Ge;i. asf.asa ma.mon.do";
         so = stringChanger(so);
         System.out.println(so);

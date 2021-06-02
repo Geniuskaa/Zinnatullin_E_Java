@@ -1,0 +1,161 @@
+{
+  "name": "default name",
+  "age": 3,
+  "countries": "ITIS"
+}{
+  "name": "SAMSUN",
+  "age": 80,
+  "countries": "SAMSUNG"
+}{
+  "name": "DELL",
+  "age": 17,
+  "countries": "DELL"
+}{
+  "name": "SPAI",
+  "age": 31,
+  "countries": "SPAIN"
+}{
+  "name": "BI",
+  "age": 71,
+  "countries": "BINOCLA"
+}{
+  "name": "MARVEL",
+  "age": 91,
+  "countries": "MARVEL"
+}{
+  "name": "DENM",
+  "age": 74,
+  "countries": "DENMARK"
+}{
+  "name": "default name",
+  "age": 56,
+  "countries": "MARVEL"
+}{
+  "name": "BINOCL",
+  "age": 64,
+  "countries": "BINOCLA"
+}{
+  "name": "default name",
+  "age": 58,
+  "countries": "DELL"
+}{
+  "name": "default name",
+  "age": 27,
+  "countries": "C_PLUS"
+}{
+  "name": "SWED",
+  "age": 91,
+  "countries": "SWEDEN"
+}{
+  "name": "C",
+  "age": 61,
+  "countries": "C_PLUS"
+}{
+  "name": "DE",
+  "age": 43,
+  "countries": "DELL"
+}{
+  "name": "C",
+  "age": 50,
+  "countries": "C_SHARP"
+}{
+  "name": "C",
+  "age": 47,
+  "countries": "CHINA"
+}{
+  "name": "default name",
+  "age": 22,
+  "countries": "C_SHARP"
+}{
+  "name": "STEA",
+  "age": 67,
+  "countries": "STEAM"
+}{
+  "name": "RUSS",
+  "age": 80,
+  "countries": "RUSSIA"
+}{
+  "name": "default name",
+  "age": 11,
+  "countries": "SWEDEN"
+}{
+  "name": "DENMA",
+  "age": 25,
+  "countries": "DENMARK"
+}{
+  "name": "default name",
+  "age": 98,
+  "countries": "DENMARK"
+}{
+  "name": "DELL",
+  "age": 77,
+  "countries": "DELL"
+}{
+  "name": "SP",
+  "age": 32,
+  "countries": "SPAIN"
+}{
+  "name": "S",
+  "age": 70,
+  "countries": "SAMSUNG"
+}{
+  "name": "C++",
+  "age": 65,
+  "countries": "C_PLUS"
+}{
+  "name": "STEA",
+  "age": 64,
+  "countries": "STEAM"
+}{
+  "name": "ITALY",
+  "age": 63,
+  "countries": "ITALY"
+}{
+  "name": "default name",
+  "age": 75,
+  "countries": "ORIGIN"
+}{
+  "name": "default name",
+  "age": 8,
+  "countries": "SAMSUNG"
+}{
+  "name": "APPL",
+  "age": 86,
+  "countries": "APPLE"
+}{
+  "name": "MARVE",
+  "age": 76,
+  "countries": "MARVEL"
+}{
+  "name": "C+",
+  "age": 84,
+  "countries": "C_PLUS"
+}{
+  "name": "DENMARK",
+  "age": 5,
+  "countries": "DENMARK"
+}{
+  "name": "GERMA",
+  "age": 39,
+  "countries": "GERMANY"
+}{
+  "name": "DENM",
+  "age": 75,
+  "countries": "DENMARK"
+}{
+  "name": "OR",
+  "age": 24,
+  "countries": "ORIGIN"
+}{
+  "name": "DC",
+  "age": 21,
+  "countries": "DC"
+}{
+  "name": "default name",
+  "age": 99,
+  "countries": "C_PLUS"
+}{
+  "name": "default name",
+  "age": 43,
+  "countries": "STEAM"
+}

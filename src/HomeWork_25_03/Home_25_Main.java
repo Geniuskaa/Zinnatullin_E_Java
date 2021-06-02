@@ -31,16 +31,10 @@ public class Home_25_Main {
         str.printAllProducts();
 
 
-
-
-
-
          //writeToFile(str,"file.txt");
 
         str = readFromFile("file.txt");
-
-
-
+        System.out.println(str.toString());
 
     }
 
@@ -58,6 +52,7 @@ public class Home_25_Main {
 
     static Store readFromFile(String nameOfFile) throws FileNotFoundException { // в существующий склад закинет данные
         Gson gson = new GsonBuilder().create();                                 // вместо тех,что уже есть там
+
         Store store = gson.fromJson(new JsonReader(new FileReader(nameOfFile)), Store.class);
         return store;
     }
