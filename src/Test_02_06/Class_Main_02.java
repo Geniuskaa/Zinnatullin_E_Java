@@ -12,12 +12,6 @@ import java.util.stream.Stream;
 
 public class Class_Main_02 {
     public static void main(String[] args) throws InterruptedException {
-        Thread thread1 = new Thread(() -> firstTask());
-
-
-        Thread thread2 = new Thread(() -> secondTask());
-
-        Thread thread3 = new Thread(() -> System.out.println("3 task"));
 
         while (true){
             System.out.println("Введите значение: ");
@@ -27,12 +21,15 @@ public class Class_Main_02 {
                 case 0:
                     return;
                 case 1:
+                    Thread thread1 = new Thread(() -> firstTask());
                     thread1.start();
                     break;
                 case 2:
+                    Thread thread2 = new Thread(() -> secondTask());
                     thread2.start();
                     break;
                 case 3:
+                    Thread thread3 = new Thread(() -> System.out.println("3 task"));
                     thread3.start();
                     break;
             }
@@ -110,6 +107,33 @@ public class Class_Main_02 {
 
 //        Arrays.stream(sklad).collect(Collectors.groupingBy(x -> x.name)).entrySet().stream()
 //                .filter(x -> x.getValue().size() > d).forEach(z -> System.out.println(z.getValue()));
+    }
+
+    public static void thirdTask(){
+        ArrayList<Purchase> s = new ArrayList<>();
+        try {
+            File file = new File("task1.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
+            while (line != null) {
+                String []temp = line.toLowerCase().split("\\|");
+                Integer i = Integer.parseInt(temp[2]);
+                s.add(new Purchase(temp[0], temp[1], i));
+                line = reader.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //TODO in progress
+//        Purchase[] pur = s.toArray(Purchase[]::new);
+//        Arrays.stream(pur).collect(Collectors.groupingBy((x) -> x.product)).entrySet().stream().peek(x )
+//                .flatMap(x -> Stream.of(
+//                        x.
+//                ))
     }
 
     static class Purchase{
